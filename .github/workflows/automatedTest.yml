@@ -26,10 +26,14 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore ./Bank/Test/Test.csproj
 
-      # Step 4: Build Test Subproject
+      # Step 4: Clean Build
+      - name: Clean Build
+        run: dotnet clean ./Bank/Test/Test.csproj
+
+      # Step 5: Build Test Subproject
       - name: Build Tests
         run: dotnet build ./Bank/Test/Test.csproj --configuration Release
 
-      # Step 5: Run Tests
-      - name: Run Tests
-        run: dotnet test ./Bank/Test/Test.csproj --no-build --verbosity normal
+      # Step 6: Run Tests with Coverage
+      - name: Run Tests with Coverage
+        run: dotnet test ./Bank/Test/Test.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --verbosity normal
