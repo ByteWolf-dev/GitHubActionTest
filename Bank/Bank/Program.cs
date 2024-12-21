@@ -165,7 +165,7 @@ namespace Bank
                         }
                         else
                         {
-                            Console.WriteLine("Invalid withdrawal amount.");
+                            Console.WriteLine("Invalid withdrawal amount");
                         }
                         break;
 
